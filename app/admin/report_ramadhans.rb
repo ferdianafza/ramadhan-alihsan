@@ -29,7 +29,9 @@ ActiveAdmin.register ReportRamadhan do
     column :puasa
     column :tadarus
     column :tarawih
-    column :tanggal
+    column "Tanggal" do |m|
+      report = ReportRamadhan.find(m.id).created_at
+    end
     actions
   end
   # permit_params do
@@ -40,7 +42,7 @@ ActiveAdmin.register ReportRamadhan do
 
   csv do
     column(:Nama) { |r| r.student.firstname  }
-    column(:tanggal) { |r| r.student.tanggal  }
+    column(:tanggal) { |r| r.student.created_at  }
     column(:puasa) { |r| r.puasa }
     column(:tadarus) { |r| r.tadarus }
     column(:tarawih) { |r| r.tarawih }
