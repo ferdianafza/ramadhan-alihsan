@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :report_ramadhans
+  resources :report_ramadhans, :except => [:edit, :update, :delete]
   resources :majors
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

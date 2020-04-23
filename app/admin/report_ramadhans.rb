@@ -6,7 +6,7 @@ ActiveAdmin.register ReportRamadhan do
   # Uncomment all parameters which should be permitted for assignment
   #
   permit_params :puasa, :tadarus, :tarawih, :subuh, :dzuhur, :ashar, :magrib, :isya,
-                  :duha, :tahajud, :taubat, :hajat, :alasan, :student_id
+                  :duha, :tahajud, :taubat, :hajat, :alasan, :student_id, :tanggal
   #
   # or
 

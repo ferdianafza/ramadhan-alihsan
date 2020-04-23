@@ -1,23 +1,22 @@
 <div class="container">
   <h2>Laporan Amalan di bulan Ramadhan</h2>
   <%= form_for @report_ramadhan do |form| %>
-  <% if @report_ramadhan.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@report_ramadhan.errors.count, "error") %> prohibited this @report_ramadhan from being saved:</h2>
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :tanggal %>
+      </div>
+      <div class="col-75">
+        <%= form.date_field :tanggal, data:{ provide:'datepicker' } %>
 
-      <ul>
-        <% @report_ramadhan.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+      </div>
     </div>
-  <% end %>
+
     <div class="row">
       <div class="col-25">
         <%= form.label :puasa %>
       </div>
       <div class="col-75">
-        <%= form.select :puasa, options_for_select([['Puasa', "Puasa"], ['Tidak',"Tidak"]], selected: @report_ramadhan.puasa) %>
+        <%= form.select :puasa, options_for_select([['Puasa', "Puasa"], ['Tidak',"Tidak"]], selected: @report_ramadhan.puasa), required: true  %>
 
       </div>
     </div>
@@ -27,7 +26,7 @@
         <%= form.label :tadarus %>
       </div>
       <div class="col-75">
-        <%= form.text_field :tadarus, placeholder: "Misal: Yasin(1)-(20)" %>
+        <%= form.text_field :tadarus, placeholder: "Misal: Yasin(1)-(20)", required: true %>
       </div>
     </div>
 
@@ -36,7 +35,7 @@
         <%= form.label :tarawih %>
       </div>
       <div class="col-75">
-        <%= form.select :tarawih, options_for_select([['tarawih', "tarawih"], ['Tidak',"Tidak"]], selected: @report_ramadhan.tarawih) %>
+        <%= form.select :tarawih, options_for_select([['tarawih', "tarawih"], ['Tidak',"Tidak"]], selected: @report_ramadhan.tarawih), required: true  %>
       </div>
     </div>
 
@@ -45,7 +44,7 @@
         <%= form.label :subuh %>
       </div>
       <div class="col-75">
-        <%= form.text_field :subuh, placeholder: "Misal: 05:03"%>
+        <%= form.text_field :subuh, placeholder: "Misal: 05:03", required: true%>
       </div>
     </div>
 
@@ -54,7 +53,7 @@
         <%= form.label :dzuhur %>
       </div>
       <div class="col-75">
-        <%= form.text_field :dzuhur, placeholder: "Misal: 12:13" %>
+        <%= form.text_field :dzuhur, placeholder: "Misal: 12:13", required: true  %>
       </div>
     </div>
 
