@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  puasa: MyString
+  tadarus: MyString
+  tarawih: MyString
+  subuh: MyString
+  dzuhur: MyString
+  ashar: MyString
+  magrib: MyString
+  isya: MyString
+  duha: MyString
+  tahajud: MyString
+  taubat: MyString
+  hajat: MyString
+  alasan: MyString
+  student_id: 1
+
+two:
+  puasa: MyString
+  tadarus: MyString
+  tarawih: MyString
+  subuh: MyString
+  dzuhur: MyString
+  ashar: MyString
+  magrib: MyString
+  isya: MyString
+  duha: MyString
+  tahajud: MyString
+  taubat: MyString
+  hajat: MyString
+  alasan: MyString
+  student_id: 1

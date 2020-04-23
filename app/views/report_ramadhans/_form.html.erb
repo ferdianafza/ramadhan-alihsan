@@ -1,0 +1,147 @@
+<div class="container">
+  <h2>Laporan Amalan di bulan Ramadhan</h2>
+  <%= form_for @report_ramadhan do |form| %>
+  <% if @report_ramadhan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@report_ramadhan.errors.count, "error") %> prohibited this @report_ramadhan from being saved:</h2>
+
+      <ul>
+        <% @report_ramadhan.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :puasa %>
+      </div>
+      <div class="col-75">
+        <%= form.select :puasa, options_for_select([['Puasa', "Puasa"], ['Tidak',"Tidak"]], selected: @report_ramadhan.puasa) %>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :tadarus %>
+      </div>
+      <div class="col-75">
+        <%= form.text_field :tadarus, placeholder: "Misal: Yasin(1)-(20)" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :tarawih %>
+      </div>
+      <div class="col-75">
+        <%= form.select :tarawih, options_for_select([['tarawih', "tarawih"], ['Tidak',"Tidak"]], selected: @report_ramadhan.tarawih) %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :subuh %>
+      </div>
+      <div class="col-75">
+        <%= form.text_field :subuh, placeholder: "Misal: 05:03"%>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :dzuhur %>
+      </div>
+      <div class="col-75">
+        <%= form.text_field :dzuhur, placeholder: "Misal: 12:13" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :ashar %>
+      </div>
+      <div class="col-75">
+        <%= form.text_field :ashar, placeholder: "Misal: 15:23" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :magrib %>
+      </div>
+      <div class="col-75">
+        <%= form.text_field :magrib, placeholder: "Misal: 18:07" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :isya %>
+      </div>
+      <div class="col-75">
+        <%= form.text_field :isya, placeholder: "Misal: 19:23" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :duha %>
+      </div>
+      <div class="col-75">
+        <%= form.text_field :duha, placeholder: "Misal: 10:56" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :tahajud %>
+      </div>
+      <div class="col-75">
+        <%= form.text_field :tahajud, placeholder: "Misal: 02:30" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :taubat %>
+      </div>
+      <div class="col-75">
+        <%= form.text_field :taubat, placeholder: "Misal: 22:42" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :hajat %>
+      </div>
+      <div class="col-75">
+        <%= form.text_field :hajat, placeholder: "Misal: 10:03" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <%= form.label :alasan %>
+      </div>
+      <div class="col-75">
+        <%= form.text_area(:alasan, size: '50x10') %>
+      </div>
+    </div>
+
+    <div class="row" hidden="">
+      <div class="col-25">
+        <%= form.label :student_id %>
+      </div>
+      <div class="col-75">
+        <%= form.text_field :student_id %>
+      </div>
+    </div>
+
+    <div class="row">
+      <%= form.submit "Kirim Laporan" %>
+    </div>
+  <% end %>
+</div>
+</div>
