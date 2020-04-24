@@ -1,4 +1,7 @@
- <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark" id="navbar">
   <a class="navbar-brand hello" id="hello" >Hallo <%= current_student.firstname %></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
@@ -13,7 +16,38 @@
 </nav>
 <br>
 <% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, class: "alert alert-info" %>
+  <%= content_tag :div, msg, class: "alert alert-info", id: "alerts" %>
 <% end %>
 
 <%= render partial: '/report_ramadhans/form' %>
+
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" hidden="">Open Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content spinner-border text-primary">
+        <!-- ICON -->
+      </div>
+
+    </div>
+  </div>
+
+<script>
+  $('document').ready(function () {
+    setTimeout(function () {
+      $('.alert-info').slideUp();
+    }, 2000);
+  });
+</script>
+
+
+<script>
+$(document).ready(function(){
+  $(".kirim").click(function(){
+    $(".btn-info").click();
+  });
+});
+</script>

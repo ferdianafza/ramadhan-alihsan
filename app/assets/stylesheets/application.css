@@ -25,3 +25,23 @@
 #login100-form-btn {
   background-image: linear-gradient(180deg, #36ff12, #6f869c);
 }
+.kirim {
+  background-color: blue;
+}
+#kirim input[type="submit"]{
+     background: transparent;
+     border: 1px solid #e8e8e8;
+     display: block;
+     float: right;
+      background: red;
+      color: #006faa;
+      font-weight: 400;
+      font-size: 1.4em; //font size does not change
+      display: block;
+      padding: 0px 4px 0px 4px; //modification doesn't show..
+      text-decoration: none;
+      &:hover {
+        color: rgb(229, 246, 255);
+        background: #0089d1;
+      }
+  }
