@@ -62,8 +62,20 @@ ActiveAdmin.register ReportRamadhan do
 
   show do
    attributes_table do
-      row :file do |av|
-        image_tag av.file, width: "50%" if av.file.attached?
+      # row :files do |av|
+      #   image_tag av.files, width: "50%" if av.files.attached?
+      # end
+
+      row :files do |av|
+        ul do
+          if av.files.attached?
+            av.files.each do |img|
+              li do
+                image_tag img, width: "40%"
+              end
+            end
+          end
+        end
       end
 
       row :student

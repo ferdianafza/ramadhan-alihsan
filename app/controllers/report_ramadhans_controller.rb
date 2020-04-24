@@ -2,10 +2,10 @@ class ReportRamadhansController < ApplicationController
   before_action :authenticate_student!
   before_action :set_report, only: [:show, :edit, :update]
 
-  def index
-    @report_ramadhans = current_student.report_ramadhans.all
-    # .order(created_at: :desc).page params[:page]
-  end
+  # def index
+  #   @report_ramadhans = current_student.report_ramadhans.all
+  #   # .order(created_at: :desc).page params[:page]
+  # end
 
   def new
     @report_ramadhan = current_student.report_ramadhans.new
@@ -19,7 +19,7 @@ class ReportRamadhansController < ApplicationController
         format.html { redirect_to homes_path, notice: 'Laporan Agenda Ramadhan berhasil dibuat.' }
         format.json { render :show, status: :created, location: @report_ramadhan }
       else
-        format.html { render :new }
+        format.html { redirect_to homes_path, notice: 'Laporan Agenda Ramadhan gagal dibuat harap isi kolom Bukti Laporan .' }
         format.json { render json: @report_ramadhan.errors, status: :unprocessable_entity }
       end
     end
@@ -28,7 +28,7 @@ class ReportRamadhansController < ApplicationController
   private
 
     def report_ramadhan_params
-      params.require(:report_ramadhan).permit(:puasa, :tadarus, :tarawih, :subuh, :dzuhur, :ashar, :magrib, :isya, :duha, :tahajud, :taubat, :hajat, :alasan, :student_id, :tanggal, :file)
+      params.require(:report_ramadhan).permit(:puasa, :tadarus, :tarawih, :subuh, :dzuhur, :ashar, :magrib, :isya, :duha, :tahajud, :taubat, :hajat, :alasan, :student_id, :tanggal, files: [])
     end
 
     def set_report_ramadhan_params
