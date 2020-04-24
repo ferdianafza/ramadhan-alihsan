@@ -1,36 +1,23 @@
-<div class="limiter">
-    <div class="container-login100">
-      <div class="wrap-login100 p-b-160 p-t-50">
-          <center>
-            <img src="<%= asset_path('logo-sekolah.png') %>" alt="logo" height="90" ><br />
-          </center>
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name),  html: {class: 'login100-form validate-form' }) do |f| %>
-          <span class="login100-form-title p-b-43" style="font-size: 24px;">
-            Ramadhan Bersama SMK AL-IHSAN
-          </span>
-
-            <div class="wrap-input100 rs1 validate-input" data-validate = "Email is required" >
-              <%= f.label :email , class: "label-input100"%>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input100" %>
-            </div>
-
-
-            <div class="wrap-input100 rs2 validate-input" data-validate="Password is required">
-              <%= f.label :password , class: "label-input100"%>
-              <%= f.password_field :password, autocomplete: "current-password", class: "input100" %>
-            </div>
-            <br />
-            <br />
-            <div class="container-login100-form-btn">
-              <%= f.submit "Log in", class: "login100-form-btn", id: "login100-form-btn" %>
-            </div>
-
-          <div class="text-center w-full p-t-23">
-            <a href="#" class="txt1">
-            </a>
-          </div>
-
-        <% end %>
-      </div>
+  <div id="id01" class="modal">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name),  html: {class: 'modal-content animate' }) do |f| %>
+    <div class="imgcontainer">
+      <img src="<%= asset_path('logo-sekolah.png') %>" alt="logo sekolah" class="avatar">
+      <h2 id="caption">RAMADHAN BERSAMA SMK AL-IHSAN</h4>
     </div>
-  </div>
+
+    <div class="container">
+      <div class="field">
+        <%= f.text_field :email, autofocus: true, autocomplete: "email", placeholder: "Email",  class: "form" , require: true%>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "current-password",placeholder: "Password", class: "form" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Log in", class: "signup" %>
+      </div>
+      <%=  link_to "Sign Up", new_student_registration_path, :id => "links" %>
+    </div>
+  <% end %>
+</div>

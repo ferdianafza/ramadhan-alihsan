@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :majors
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :students, controllers: { sessions: 'students/sessions' }
+  devise_for :students, controllers: { sessions: 'students/sessions', registrations: 'students/registrations' }
   devise_scope :student do
     get 'sign_in', to: 'students/sessions#new'
     get '/students/sign_out' => 'students/sessions#destroy'

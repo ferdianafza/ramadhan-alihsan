@@ -1,29 +1,39 @@
-<h2>Sign up</h2>
+<div id="id01" class="modal">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name),  html: {class: 'modal-content animate' }) do |f| %>
+    <div class="imgcontainer">
+      <img src="<%= asset_path('logo-sekolah.png') %>" alt="Avatar" class="avatar">
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="container">
+      <div class="field">
+    <%= f.select :major_id, Major.all.collect {|m| [ m.name, m.id ] }, { :include_blank => "Pilih Kelas anda" }, { :class => "custom-select form" } %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.text_field :firstname, autofocus: true, placeholder: "Nama Depan", class: "form" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.text_field :lastname, autofocus: true, placeholder: "Nama Belakang", class: "form" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "form"  %>
+  </div>
+
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (min 6 karakter)", class: "form"%>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password-confirmation", placeholder: "Konfirmasi Password" , class: "form" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Daftar", :class => "signup" %>
   </div>
-<% end %>
-
-<%= render "students/shared/links" %>
+  <%=  link_to "Log in", new_student_session_path, :id => "links" %>
+    </div>
+  <% end %>
+</div>
