@@ -1,0 +1,81 @@
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th {
+  text-align: left;
+  padding: 12px;
+}
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark" id="navbar">
+  <a class="navbar-brand hello" id="hello" >Hallo <%= current_student.firstname %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <%= link_to "Dashboard", homes_path , :class => 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Laporanku", homes_myreports_path, :class => 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Logout", destroy_student_session_path, method: :delete, :class => 'nav-link logout', :id => "logout"   %>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div style="overflow-x:auto;">
+  <table>
+    <tr>
+      <th>Tanggal</th>
+      <th>Puasa</th>
+      <th>Tadarus</th>
+      <th>Tarawih</th>
+      <th>Subuh</th>
+      <th>Dzuhur</th>
+      <th>Ashar</th>
+      <th>Magrib</th>
+      <th>Isya</th>
+      <th>Duha</th>
+      <th>Tahajud</th>
+      <th>Taubat</th>
+      <th>Hajat</th>
+      <th>Alasan</th>
+    </tr>
+    <% @report_ramadhans.each do |report_ramadhan| %>
+      <tr>
+        <td><%= report_ramadhan.created_at.to_date %></td>
+        <td><%= report_ramadhan.puasa %></td>
+        <td><%= report_ramadhan.tadarus %></td>
+        <td><%= report_ramadhan.tarawih %></td>
+        <td><%= report_ramadhan.subuh %></td>
+        <td><%= report_ramadhan.dzuhur %></td>
+        <td><%= report_ramadhan.ashar %></td>
+        <td><%= report_ramadhan.magrib %></td>
+        <td><%= report_ramadhan.isya %></td>
+        <td><%= report_ramadhan.duha %></td>
+        <td><%= report_ramadhan.tahajud %></td>
+        <td><%= report_ramadhan.taubat %></td>
+        <td><%= report_ramadhan.hajat %></td>
+        <td><%= report_ramadhan.alasan %></td>
+      </tr>
+    <% end %>
+  </table>
+  <center>
+    <%= paginate @report_ramadhans, theme: 'twitter-bootstrap-4' %>
+  </center>
+</div>

@@ -68,3 +68,7 @@ gem 'activeadmin_blaze_theme'
 gem "aws-sdk-s3", require: false
 
 gem 'activestorage-validator'
+
+gem 'kaminari'
+
+gem 'bootstrap4-kaminari-views'
