@@ -6,7 +6,8 @@ ActiveAdmin.register ReportRamadhan do
   # Uncomment all parameters which should be permitted for assignment
   #
   permit_params :puasa, :tadarus, :tarawih, :subuh, :dzuhur, :ashar, :magrib, :isya,
-                  :duha, :tahajud, :taubat, :hajat, :alasan, :student_id, :tanggal
+                  :duha, :tahajud, :taubat, :hajat, :alasan, :student_id, :tanggal,
+                  :file
   #
   # or
 
@@ -57,5 +58,34 @@ ActiveAdmin.register ReportRamadhan do
     column(:hajat) { |r| r.hajat }
     column(:alasan) { |r| r.alasan }
   end
+
+
+  show do
+   attributes_table do
+      row :file do |av|
+        image_tag av.file, width: "50%" if av.file.attached?
+      end
+
+      row :student
+      row :puasa
+      row :tadarus
+      row :tarawih
+
+      row :subuh
+      row :dzuhur
+      row :ashar
+      row :magrib
+      row :isya
+
+      row :duha
+      row :tahajud
+      row :taubat
+      row :hajat
+      row :alasan
+
+    end
+  end
+
+
 
 end

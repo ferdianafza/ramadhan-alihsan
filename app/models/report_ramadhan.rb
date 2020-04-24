@@ -1,5 +1,6 @@
 class ReportRamadhan < ApplicationRecord
   belongs_to :student
+  has_one_attached :file
 
   # validates :puasa ,:tadarus, :tarawih, :subuh, :dzuhur,:ashar ,:magrib,
   #             :isya, presence: true

@@ -64,3 +64,5 @@ gem 'activeadmin'
 gem 'foreman'
 
 gem 'activeadmin_blaze_theme'
+
+gem "aws-sdk-s3", require: false
