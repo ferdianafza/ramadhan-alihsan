@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   end
   resources :homes
   get "/homes/myreports" => "/homes/myreports"
+  get "/homes/profile" => "/homes/profile"
+  get "/profile/index" => "/profile/index"
   root to: 'homes#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

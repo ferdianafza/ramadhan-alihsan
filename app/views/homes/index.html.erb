@@ -15,6 +15,9 @@
         <%= link_to "Laporanku", homes_myreports_path, :class => 'nav-link' %>
       </li>
       <li class="nav-item">
+        <%= link_to "Profil", profile_index_path, :class => 'nav-link' %>
+      </li>
+      <li class="nav-item">
         <%= link_to "Logout", destroy_student_session_path, method: :delete, :class => 'nav-link logout', :id => "logout"   %>
       </li>
     </ul>

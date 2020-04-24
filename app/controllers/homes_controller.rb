@@ -10,7 +10,11 @@ class HomesController < ApplicationController
   end
 
   def show
-    @report_ramadhans = current_student.report_ramadhans.all.order(created_at: :desc ).page params[:page]
+    @report_ramadhans = current_student.report_ramadhans.all.order(tanggal: :desc ).page params[:page]
+  end
+
+  def profile
+
   end
 
 end
