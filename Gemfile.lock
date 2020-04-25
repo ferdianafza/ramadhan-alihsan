@@ -119,6 +119,8 @@ GEM
       warden (~> 1.2.3)
     erubi (1.9.0)
     ffi (1.12.2)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     foreman (0.87.1)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
@@ -299,6 +301,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  font-awesome-rails
   foreman
   jbuilder (~> 2.7)
   kaminari

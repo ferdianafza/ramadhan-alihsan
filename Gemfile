@@ -72,3 +72,5 @@ gem 'activestorage-validator'
 gem 'kaminari'
 
 gem 'bootstrap4-kaminari-views'
+
+gem "font-awesome-rails"

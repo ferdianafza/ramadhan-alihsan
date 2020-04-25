@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -23,6 +24,85 @@
     </ul>
   </div>
 </nav>
+<!-- <div class="container">
+  <div class="row">
+    <h2 class="ban">Data Informasi Corona Indonesia</h2>
+    <div class="col-sm" id="konfirmasi">
+      <%= fa_icon "plus 2x", class: "plus" %>Total Kasus
+    </div>
+    <div class="col-sm" id="sembuh">
+      <%= fa_icon "heart 2x", class: "heart" %> Sembuh
+    </div>
+    <div class="col-sm" id="meninggal">
+      <%= fa_icon "frown-o 2x", class: "frown-o" %> Meninggal
+    </div>
+  </div>
+</div> -->
+
+<div class="container banner-corona">
+    <center>
+      <h3 class="caption-banner">Data Informasi Corona </h3><em>(klik)</em>
+      <hr>
+    </center>
+  <div class="row" id="data-cor">
+    <div class="col" id="konfirmasi" style="border-right: 1px solid black;">
+      <%= fa_icon "plus 2x", class: "plus" %><br/ >
+      Total Kasus
+    </div>
+    <div class="col order-12" id="meninggal" style="border-left: 1px solid black;">
+      <%= fa_icon "frown-o 2x", class: "frown-o" %><br />
+      Meninggal<br />
+    </div>
+    <div class="col order-1" id="sembuh">
+      <%= fa_icon "heart 2x", class: "heart" %><br />
+      Sembuh
+    </div>
+  </div>
+</div>
+<!-- <button id="konfirmasi"></button>
+<button id="sembuh"></button>
+<button id="meninggal"></button> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- <script>
+$.ajax({
+        url: "https://api.kawalcorona.com/indonesia",
+        type: 'GET',
+        dataType: 'json', // added data type
+        success: function(res) {
+            console.log(res);
+            alert(res);
+        }
+    });
+</script> -->
+<script>
+$(document).ready(function(){
+var stream = 'https://www.trackcorona.live/api/countries/id';
+    $.ajax({
+        url: stream,
+        dataType: "json",
+        contentType: 'application/json',
+        success: function(respone, status) {
+            var konfirmasi = $('#konfirmasi');
+            var sembuh = $('#sembuh');
+            var meninggal = $('#meninggal');
+              // list.empty();
+              $(respone.data).each(function (index, element) {
+                  konfirmasi.append(element.confirmed);
+                  // list.append('<li>'+element.dead+'<li>')
+              })
+              $(respone.data).each(function (index, element) {
+                  sembuh.append(element.recovered);
+                  // list.append('<li>'+element.dead+'<li>')
+              })
+
+              $(respone.data).each(function (index, element) {
+                  meninggal.append(element.dead);
+                  // list.append('<li>'+element.dead+'<li>')
+              })
+        }
+    });
+});
+</script>
 <br>
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, class: "alert alert-info", id: "alerts" %>
@@ -57,6 +137,14 @@
 $(document).ready(function(){
   $(".kirim").click(function(){
     $(".btn-info").click();
+  });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $(".caption-banner").click(function(){
+    $("#data-cor").slideToggle("slow");
   });
 });
 </script>
