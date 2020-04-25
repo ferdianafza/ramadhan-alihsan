@@ -11,10 +11,12 @@ ActiveAdmin.register ReportRamadhan do
   #
   # or
 
-  filter :student
-  filter :created_at, label: "Tanggal Laporan"
+  # filter :student
+  filter :tanggal
   filter :student_firstname_or_student_lastname_cont, label: 'Cari Berdasarkan Nama'
-  filter :students_major
+  filter :student,
+   collection: -> { Major.all },
+   label:      'Kelas'
 
   index do
     selectable_column
@@ -30,9 +32,7 @@ ActiveAdmin.register ReportRamadhan do
     column :puasa
     column :tadarus
     column :tarawih
-    column "Tanggal" do |m|
-      report = ReportRamadhan.find(m.id).created_at
-    end
+    column :tanggal
     actions
   end
   # permit_params do

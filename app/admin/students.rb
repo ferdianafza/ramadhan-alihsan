@@ -15,6 +15,23 @@ ActiveAdmin.register Student do
   #   permitted
   # end
 
+   index do
+    selectable_column
+    id_column
+    column "Nama" do |m|
+      student = Student.find(m.id).firstname
+      student2 = Student.find(m.id).lastname
+      student + " " +student2
+    end
+
+    column :email
+    column "Jurusan" do |m|
+      student_major = Student.find(m.id).major
+      student_major
+    end
+    actions
+  end
+
   form do |f|
     f.inputs do
       f.input :firstname
