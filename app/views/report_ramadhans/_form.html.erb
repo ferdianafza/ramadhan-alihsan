@@ -30,6 +30,12 @@
       </div>
     </div>
 
+    <div class="row" hidden="">
+      <div class="col-75">
+        <%= form.text_field :major_id, :value => current_student.major_id, required: true %>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-25">
         <%= form.label :tarawih %>

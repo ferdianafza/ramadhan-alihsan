@@ -28,7 +28,9 @@ class ReportRamadhansController < ApplicationController
   private
 
     def report_ramadhan_params
-      params.require(:report_ramadhan).permit(:puasa, :tadarus, :tarawih, :subuh, :dzuhur, :ashar, :magrib, :isya, :duha, :tahajud, :taubat, :hajat, :alasan, :student_id, :tanggal, files: [])
+      params.require(:report_ramadhan).permit(:puasa, :tadarus, :tarawih, :subuh, :dzuhur,
+                                         :ashar, :magrib, :isya, :duha, :tahajud, :taubat,
+                                        :hajat, :alasan, :student_id, :major_id, :tanggal, files: [])
     end
 
     def set_report_ramadhan_params

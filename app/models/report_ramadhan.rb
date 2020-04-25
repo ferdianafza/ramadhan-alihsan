@@ -1,4 +1,5 @@
 class ReportRamadhan < ApplicationRecord
+  belongs_to :major
   belongs_to :student
   has_many_attached :files
 

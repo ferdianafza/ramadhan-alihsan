@@ -7,16 +7,14 @@ ActiveAdmin.register ReportRamadhan do
   #
   permit_params :puasa, :tadarus, :tarawih, :subuh, :dzuhur, :ashar, :magrib, :isya,
                   :duha, :tahajud, :taubat, :hajat, :alasan, :student_id, :tanggal,
-                  :file
+                  :file, :major_id
   #
   # or
 
   # filter :student
   filter :tanggal
   filter :student_firstname_or_student_lastname_cont, label: 'Cari Berdasarkan Nama'
-  filter :student,
-   collection: -> { Major.all },
-   label:      'Kelas'
+  filter :major, label: 'Cari Berdasarkan Kelas'
 
   index do
     selectable_column
