@@ -1,9 +1,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+<style>
+  .navbar {
+    /*position: fixed;*/
+  }
+</style>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark" id="navbar">
-  <a class="navbar-brand hello" id="hello" >Hallo <%= current_student.firstname %></a>
+  <a class="navbar-brand hello" id="hello" >
+    <img src="<%= asset_path('avatar.jpg')%>" alt="avatar" id="avat" class="image-avatar"> <%= current_student.firstname %>
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>

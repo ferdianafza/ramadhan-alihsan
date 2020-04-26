@@ -19,7 +19,9 @@ tr:nth-child(even){background-color: #f2f2f2}
 </style>
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark" id="navbar">
-  <a class="navbar-brand hello" id="hello" >Hallo <%= current_student.firstname %></a>
+  <a class="navbar-brand hello" id="hello" >
+    <img src="<%= asset_path('avatar.jpg')%>" alt="avatar" id="avat" class="image-avatar"> <%= current_student.firstname %>
+  </a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
