@@ -302,7 +302,6 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   activeadmin_blaze_theme
-  activejob
   activestorage-validator
   aws-sdk-s3
   bootsnap (>= 1.4.2)

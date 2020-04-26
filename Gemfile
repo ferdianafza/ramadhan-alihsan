@@ -77,5 +77,3 @@ gem 'bootstrap4-kaminari-views'
 gem "font-awesome-rails"
 
 gem 'twilio-ruby', '~> 5.33.1'
-
-gem 'activejob'
