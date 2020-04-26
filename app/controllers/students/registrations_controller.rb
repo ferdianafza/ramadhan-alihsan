@@ -6,6 +6,8 @@ class Students::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, if: :devise_controller?
   before_action :configure_account_update_params, only: [:update]
 
+
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -54,6 +56,11 @@ class Students::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname, :lastname, :major_id])
   end
+
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:avatar, :firstname, :lastname])
+  end
+
 
   # def configure_permitted_parameters
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:display_name])

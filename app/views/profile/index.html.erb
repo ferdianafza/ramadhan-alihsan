@@ -1,4 +1,32 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+.fab {
+   width: 50px;
+   height: 50px;
+   background-color: red;
+   border-radius: 50%;
+   box-shadow: 0 6px 10px 0 #666;
+   transition: all 0.1s ease-in-out;
+
+   font-size: 50px;
+   color: white;
+   text-align: center;
+   line-height: 70px;
+
+   position: fixed;
+   right: 50px;
+   bottom: 50px;
+}
+
+.pencil {
+    font-size: 30px;
+}
+
+.fab:hover {
+   box-shadow: 0 6px 14px 0 #666;
+   transform: scale(1.05);
+}
+
 .card {
     padding-top: 20px;
     margin: 10px 0 20px 0;
@@ -245,7 +273,12 @@
 </style>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark" id="navbar">
       <a class="navbar-brand hello" id="hello" >
-        <img src="<%= asset_path('avatar.jpg')%>" alt="avatar" id="avat" class="image-avatar"> <%= current_student.firstname %>
+        <% if current_student.avatar.attached? %>
+          <%= image_tag url_for(current_student.avatar), class:"image-avatar", id: "avat" %>
+        <% else %>
+          <img src="<%= asset_path('avatar.jpg')%>" alt="avatar" id="avat" class="image-avatar">
+        <% end %>
+        <%= current_student.firstname %>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -275,8 +308,11 @@
 
                     </div>
                     <div class="avatar">
-                        <img src="<%= asset_path('avatar.jpg') %>" alt="avatar">
-                        <!-- <img alt="" src="http://lorempixel.com/100/100/people/9/"> -->
+                        <% if current_student.avatar.attached? %>
+                          <%= image_tag url_for(current_student.avatar), class:"im" %>
+                        <% else %>
+                          <img src="<%= asset_path('avatar.jpg') %>" alt="avatar">
+                        <% end %>
                     </div>
                     <div class="info">
                         <div class="title">
@@ -308,3 +344,4 @@
             </div>
         </div>
     </center>
+    <%= link_to (fa_icon "pencil 3x", class: "pencil fab"), edit_student_registration_path, :class => 'nav-link' %>
